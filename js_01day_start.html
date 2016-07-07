@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>hellow js</title>
+
+		<style>
+			.contain {
+				border-bottom:4px solid gray;
+				border-left:4px solid gray;
+				border-right:4px solid gray;
+				width:300px;
+				height:130px;
+				margin:20px;
+				padding:20px;
+			}
+
+			.label {
+				margin-left:170px;
+			}
+
+			.dish {
+				background-color:orange;
+				margin:5px;
+				width:280px;
+				padding:5px 10px;
+			}
+			.clean {
+				border:gray 1px solid;
+				background-color:white;
+			}
+			.broken {
+				background-color:black;
+				color:white;
+			}
+			#dishcontain {
+				padding-left:40px;
+				float:right;
+			}
+			#run {
+				margin-left:20px;
+				padding:20px;
+				width:340px;
+			}
+		</style>
+		
+		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+		<script>
+			function 설거지(){
+				접시들 = [$('#접시1'), $('#접시2'), $('#접시3'), $('#접시4'), $('#접시5'), $('#접시6')];
+
+				for (var i = 0; i < 접시들.length; i++) {
+					닦을접시 = 접시들 [i];
+					if (닦을접시.text() == '접시') {
+						닦을접시.addClass('clean');
+						$('#건조대').append(닦을접시);
+					} else {
+						$('#쓰래기통').append(닦을접시);
+					}
+				}
+			}
+
+		</script>
+	</head>
+	<body>
+		<div id="dishcontain">
+			<div id="접시1" class="dish">접시</div>
+			<div id="접시2" class="dish">접시</div>
+			<div id="접시3" class="dish">접시</div>
+			<div id="접시4" class="dish broken">깨진접시</div>
+			<div id="접시5" class="dish">접시</div>
+			<div id="접시6" class="dish broken">깨지접시</div>
+		</div>
+		<input type="button" id="run" onclick="설거지()"	value="설거지" />
+		<div id="건조대" class="contain"></div>
+		<div class="label">건조대</div>
+		<div id="쓰래기통" class="contain"></div>
+		<div class="label">쓰래기통</div>
+	</body>
+</html>
